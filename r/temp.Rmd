@@ -12,23 +12,83 @@ output:
     extra_dependencies: ["amsfonts","amsmath","xcolor"]
 ---
 
-# Data retrieval {-}
+# Data retrieval
 
 You can retrieve your data set in different ways:
 
-* log into [kaggle]() and download the .csv file.
-  (to be found in the **data** sub directory as well)
+* log into [kaggle]() and download the .csv file from:
+
+  [https://www.kaggle.com/datasets/mirichoi0218/insurance](https://www.kaggle.com/datasets/mirichoi0218/insurance)
+  
+  The dataset can be found in the **data** sub directory.
 * use the [kaggle Python-API](https://github.com/Kaggle/kaggle-api).
   (requires a Python **pip install**)
   
+# Using R
+* R binaries exist for several OS (Windows, MacOS, Linux):
+  * [https://cran.r-project.org/](https://cran.r-project.org/)
+  * [Microsoft R Open](https://mran.microsoft.com/) is an enhanced version (e.g. multi-threading)
+* [R source code](https://cran.r-project.org/) 
+  * Use e.g. [Intel MKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html) or [OpenBlas](https://www.openblas.net/) to increase the speed of your R code. 
+* IDE: 
+  * [RStudio](https://www.rstudio.com/) (Windows, MacOS, Linux).
+* Statistics/Linear Regression:
+  * R's strength! 
+* Plotting in R:
+  * [ggplot2](https://ggplot2.tidyverse.org/) 
+  * regular R plot function  
+* Tutorials
+  * [The Art of R Programming](https://heather.cs.ucdavis.edu/~matloff/132/NSPpart.pdf)
+  * [Advanced R](https://adv-r.hadley.nz/)
+  
+# Using Python
+* Python binaries can be obtained from [anaconda.com](https://www.anaconda.com/).
 
-# Working with the downloaded data set {-}
+  You can either choose anaconda or miniconda (light-weight version of the former).
+* [Python source code](https://www.python.org/downloads/source/)
+  * Besides Python, you will need to install other packages such as numpy, scipy, pandas, matplotlib, statsmodels
+  * Use the [Intel MKL](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl-link-line-advisor.html) or [OpenBlas](https://www.openblas.net/) libraries for NumPy, SciPy. 
+  * **Only** go this route if you **really** understand code compilation, linking and have time to perform the installation.
+* IDE: 
+  * [PyCharm](https://www.jetbrains.com/pycharm/)
+  * [Jupyter](https://jupyter.org/)
+  
+    You can use either jupyter notebook or jupyter lab.
+* Statistics/Linear Regression:
+  * [statsmodels module](https://www.statsmodels.org/stable/index.html)
+  
+    Using R-style formulas and dataframes.
+* Plotting
+  * [matplotlib](https://matplotlib.org/)
+  * [seaborn](https://seaborn.pydata.org/)
+* Tutorials
+  * [Python Tutorial](https://docs.python.org/3/tutorial/)
+  * [Intro to NumPy & SciPy](https://github.com/wcardoen/numpy-pearc20/tree/master/notebooks)
+  * [Matplotlib examples (including code)](https://matplotlib.org/stable/gallery/index.html)
+  * [Seaborn examples (including code)](http://seaborn.pydata.org/examples/index.html)
+  * [Statsmodels examples (including code)](https://www.statsmodels.org/stable/examples/index.html)
+  
+# Using Latex
 
-* Read the dataset
+I have created *template* Latex and BibTeX files which may serve as a start.
+
+* Binaries:
+  * [MikTex](https://miktex.org/): available for Windows, MacOs and Linux
+* Source Code:
+  * [CTAN](https://miktex.org/)
+* Tutorials:
+  * [A Brief Introduction to TeX and LaTeX (Dr. Nelson Beebe)](http://ftp.math.utah.edu/pub/tex/doc/latex-overview/index-chpc.html)
+  * [Latex Tutorial](https://latex-tutorial.com/tutorials/)
+  
+  
+# R  
+##  Exploration of the data set
+
+* Read the dataset 
 * Print the header of the data frame
 
 ```{R echo=TRUE}
-mydata <- read.csv(file="./data/insurance.csv", header=TRUE)
+mydata <- read.csv(file="../data/insurance.csv", header=TRUE)
 mys <- sprintf("  Num. Rows:%d   Num. Columns:%d\n", dim(mydata)[1], dim(mydata)[2])
 cat(mys)
 
@@ -40,19 +100,3 @@ head(mydata)
 
 ```
 
-# Making plots in R & Python {-}
-
-There are several options to generate plots, e.g.:
-
-*  R: 
-   * [ggplot2](https://ggplot2.tidyverse.org/) 
-   * regular R plot function
-*  Python (see Jupyter Notebook)
-   * [matplotlib](https://matplotlib.org/)
-   * [seaborn](https://seaborn.pydata.org/)
-   
-# Perform Linear Regression {-}
-*  R: use R's **lm()**  (i.e. linear models)
-*  Python: use of the [statsmodels module](https://www.statsmodels.org/stable/index.html)
-   
-# Use of Latex {-}
