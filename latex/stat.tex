@@ -1,0 +1,27 @@
+\section{Statistical Analysis}
+
+\subsection{Model}
+In what follows we will use the following linear model:
+\begin{eqnarray}
+       Y_i & = & \beta_0 \, + \, x_{i,1}\,\beta_1 \,+\,
+                 x_{i,2}\,\beta_2 \, + \,x_{i,3}\,\beta_3 \,+\,
+                 x_{i,4}\,\beta_4 \, + \, \epsilon_i \nonumber \\
+	   & = & \displaystyle \sum_{k=0}^4 x_{i,k}\,\beta_k \, + \, \epsilon_i \label{Eqn:Model1}		 
+\end{eqnarray}
+where $x_{i,0}:=1$.
+
+Eq.\,(\ref{Eqn:Model1}) can also be rewritten in matrix form\footnote{In what follows we will display vectors in bold.}:
+\begin{eqnarray}
+        \boldsymbol{Y} & = & \boldsymbol{X} \, \boldsymbol{\beta} \, + \, \boldsymbol{\mathcal{E}} \label{Eqn:Model2}
+\end{eqnarray}
+
+
+The test of the null hypothesis can be achieved by calculating the value for the following F-statistic\,\cite{seber2012linear}:
+\begin{eqnarray}
+        f_{1,n-p} & = & \frac{ \boldsymbol{(A\widehat{\beta}\,-\,c)^T}  \,
+                        \boldsymbol{\Bigg[ A(X^TX)^{-1}A^T \Bigg]^{-1} } \,
+                          \boldsymbol{(A\widehat{\beta}\,-\,c)}
+                         }{S^2} \label{Eq:Fstatistic}
+\end{eqnarray}
+where the expression $\boldsymbol{(A\widehat{\beta}\,-\,c)}$
+imposes a constraint on $\boldsymbol{\widehat{\beta}}$.

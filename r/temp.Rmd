@@ -1,0 +1,58 @@
+---
+title: "MATH 6010 - Template RMarkdown"
+author: "Wim R. M. Cardoen"
+date: "8/19/2022"
+output:
+  pdf_document:
+    highlight: tango
+    df_print: tibble
+    toc: false
+    toc_depth: 5
+    number_sections: true
+    extra_dependencies: ["amsfonts","amsmath","xcolor"]
+---
+
+# Data retrieval {-}
+
+You can retrieve your data set in different ways:
+
+* log into [kaggle]() and download the .csv file.
+  (to be found in the **data** sub directory as well)
+* use the [kaggle Python-API](https://github.com/Kaggle/kaggle-api).
+  (requires a Python **pip install**)
+  
+
+# Working with the downloaded data set {-}
+
+* Read the dataset
+* Print the header of the data frame
+
+```{R echo=TRUE}
+mydata <- read.csv(file="./data/insurance.csv", header=TRUE)
+mys <- sprintf("  Num. Rows:%d   Num. Columns:%d\n", dim(mydata)[1], dim(mydata)[2])
+cat(mys)
+
+for(item in colnames(mydata)){
+  mys <- sprintf("'%s'\n",item)
+  cat("  Column:", mys)
+}
+head(mydata)
+
+```
+
+# Making plots in R & Python {-}
+
+There are several options to generate plots, e.g.:
+
+*  R: 
+   * [ggplot2](https://ggplot2.tidyverse.org/) 
+   * regular R plot function
+*  Python (see Jupyter Notebook)
+   * [matplotlib](https://matplotlib.org/)
+   * [seaborn](https://seaborn.pydata.org/)
+   
+# Perform Linear Regression {-}
+*  R: use R's **lm()**  (i.e. linear models)
+*  Python: use of the [statsmodels module](https://www.statsmodels.org/stable/index.html)
+   
+# Use of Latex {-}
